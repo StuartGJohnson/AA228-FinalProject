@@ -1,0 +1,92 @@
+\documentclass[twoside,11pt]{article}
+
+\usepackage{aa228-jmlr2e}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{listings}
+\usepackage{url}
+\usepackage{cleveref}
+\usepackage{subcaption}
+
+\usepackage{enumitem}
+
+\setlist[itemize]{noitemsep}  % or \setlist[itemize]{itemsep=0pt, topsep=0pt}
+
+\begin{document}
+
+% More details can be found here: https://aa228.stanford.edu/final-project/
+\title{Final Project Proposal: Mission planning and exploration via POMDP}
+
+%===========================================
+% Fill in your names and emails
+%===========================================
+\name{Stuart Johnson}
+\email{stujohn@stanford.edu}
+
+\maketitle
+
+\section{Goal}
+An autonomous agent needs to locate and carefully inspect (by photography, say) a series of electronic devices which have been deployed to a geographic region.  The agent must therefore find these devices and proceed to their locations. These devices were deployed in such a way that their locations are only approximately known - that is to say, we have priors on their locations. In order to find these devices, the agent can use radio direction and ranging equipment to communicate with the devices - which are passively listening and capable of responding (one at a time) when interrogated by radio. This sensing returns a noisy relative location of the device - but the agent is capable of improving the location estimate as measurements are made. Both the agent and the devices require power to perform these communications - the devices are powered, but minimally. The agent has more power, but the radio direction finding is a power-hungry operation. Once within a given range of the object, the agent can see the device, and can proceed directly to complete its inspection task. If either the agent or the devices exceeds power consumption in a given time frame, they must cease operations to recharge (one imagines solar power). The recharge time is known. The agent also requires power to move.
+
+The goal is to find a movement and sensing schedule (a policy) for the agent to maximize the utility of a mission given a fixed mission time. It will be more important to inspect some devices than others - for example some may be more mission-critical, so that the utility will depend on the device. Also, the interplay of the various parameters of the device and agent and the optimal policy are of interest to gain insights into system design.
+
+This problem was inspired by interest in posing the sport of orienteering (but NOT "team orienteering") as a POMDP. That project is still in discussion with an orienteer. This problem is reminiscent of SLAM as a POMDP \citep{Slam2023}, but our goals are not to make a better map - we have a specific mission in mind. If we were merely interested in improving our estimates of the device positions, this is a type of resource-constrained exploration problem \citep{figop}. Such problems are ubiquitous.
+
+
+\section{Decision Making}
+The route (target order selection and travel) and radio communication actions are all sequential decisions. The quality of the location of the devices is an integral of the running communication efforts and dependent on all past actions. The sequence of actions results in distinct branches in the utility of a given policy. For example, early attempts to communicate with many devices (or perhaps even worse - just one!) in order to improve the map quality may cause power issues later in the mission.
+
+This problem maps to the following POMDP.
+
+\begin{itemize}
+\item States:
+\begin{itemize}
+\item agent: position, velocity and heading, battery level, operational state
+\item each device: position, battery level, operational state
+\end{itemize}
+\item Actions:
+\begin{itemize}
+\item agent: ping device $i$ (i.e. acquire device bearing and distance)
+\item agent: set agent heading and velocity
+\end{itemize}
+\item Transitions:
+\begin{itemize}
+\item agent: execute dynamics/kinematics (deterministic)
+\item each device: enter or exit recharge
+\item agent: enter or exit recharge
+\item agent/device: communication/localization
+\end{itemize}
+\item Rewards:
+\begin{itemize}
+\item device: communication energy penalty (negative)
+\item agent: communication/localization energy penalty (negative)
+\item agent: movement energy penalty (negative)
+\item agent: time penalty
+\item agent: recharge penalty (optional)
+\item agent: device specific inspection reward (the only reward!)
+\end{itemize}
+\item Observations:
+\begin{itemize}
+\item device $i$ heading and range (relative to agent)
+\end{itemize}
+\end{itemize}
+
+\section{Sources of Uncertainty}
+The location of each device is uncertain. This results from location priors and the error in the heading and range acquired by the agent from a device ping. Knowledge of the locations of the devices will improve as the mission progresses.
+
+\section{Sketches of Solution (Optional)}
+The solution might include such diverse elements as:
+
+\begin{itemize}
+\item parameterization: A 2D Grid world with simplified dynamics (up,down,left,right). Grid resolution would presumably need to be sufficient not to cause significant artifacts. A more efficient graph discretization of space might be better for problems with route constraints, or if we can argue for it as a sufficient representation of movement space.
+\item Belief approximations (e.g. \citep{Kochenderfer2022}, Chapter 19)
+\item policy search: We do not necessarily need the globally optimal solution  - a workable policy to confirm system design is sufficient - so the solution is open to approximate methods. It is not clear to me how much approximation will be necessary.
+\end{itemize}
+
+% References
+\bibliography{references}
+
+
+\end{document}
+
