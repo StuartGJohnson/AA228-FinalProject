@@ -1,0 +1,31 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Kochenderfer et~al.(2022)Kochenderfer, Wheeler, and
+  Wray]{Kochenderfer2022}
+Mykel~J. Kochenderfer, Tim~A. Wheeler, and Kyle~H. Wray.
+\newblock \emph{Algorithms for Decision Making}.
+\newblock MIT Press, 2022.
+
+\bibitem[Peltzer et~al.(2022)Peltzer, Bouman, Kim, Senanayake, Ott, Delecki,
+  Sobue, Kochenderfer, Schwager, Burdick, and akbar Agha-mohammadi]{figop}
+Oriana Peltzer, Amanda Bouman, Sung-Kyun Kim, Ransalu Senanayake, Joshua Ott,
+  Harrison Delecki, Mamoru Sobue, Mykel Kochenderfer, Mac Schwager, Joel
+  Burdick, and Ali akbar Agha-mohammadi.
+\newblock Fig-op: Exploring large-scale unknown environments on a fixed time
+  budget, 2022.
+\newblock URL \url{https://arxiv.org/abs/2203.06316}.
+
+\bibitem[Placed et~al.(2023)Placed, Strader, Carrillo, Atanasov, Indelman,
+  Carlone, and Castellanos]{Slam2023}
+Julio~A. Placed, Jared Strader, Henry Carrillo, Nikolay Atanasov, Vadim
+  Indelman, Luca Carlone, and José~A. Castellanos.
+\newblock A survey on active simultaneous localization and mapping: State of
+  the art and new frontiers, 2023.
+\newblock URL \url{https://arxiv.org/abs/2207.00254}.
+
+\end{thebibliography}
