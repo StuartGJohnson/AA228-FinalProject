@@ -1,3 +1,5 @@
+using LinearAlgebra
+
 function POMDPs.stateindex(pomdp::RockSamplePOMDP{K}, s::RSState{K}) where K
     if isterminal(pomdp, s)
         return length(pomdp)
@@ -13,6 +15,7 @@ function state_from_index(pomdp::RockSamplePOMDP{K}, si::Int) where K
     nx, ny = pomdp.map_size
     s = CartesianIndices((nx, ny, rocks_dim...))[si]
     pos = RSPos(s[1], s[2])
+    posRocks = SVector{K, Bool}
     rocks = SVector{K, Bool}(s.I[3:(K+2)] .- 1)
     return RSState{K}(pos, rocks)
 end
@@ -20,6 +23,7 @@ end
 # the state space is the pomdp itself
 POMDPs.states(pomdp::RockSamplePOMDP) = pomdp
 
+# the +1 is the terminal state
 Base.length(pomdp::RockSamplePOMDP) = pomdp.map_size[1]*pomdp.map_size[2]*2^length(pomdp.rocks_positions) + 1
 
 # we define an iterator over it
@@ -34,8 +38,11 @@ end
 function POMDPs.initialstate(pomdp::RockSamplePOMDP{K}) where K
     probs = normalize!(ones(2^K), 1)
     states = Vector{RSState{K}}(undef, 2^K)
-    for (i,rocks) in enumerate(Iterators.product(ntuple(x->[false, true], K)...))
-        states[i] = RSState{K}(pomdp.init_pos, SVector(rocks))
-    end
-    return SparseCat(states, probs)
+    # we only have one initial state - no distribution
+    #for (i,rocks) in enumerate(Iterators.product(ntuple(x->[false, true], K)...))
+    #    states[i] = RSState{K}(pomdp.init_pos, SVector(rocks))
+    #end
+    theOnlyState = RSState{K}(pomdp.init_pos, SVector{K,Bool}(falses(K)))
+    #return SparseCat(states, probs)
+    return Deterministic(theOnlyState)
 end

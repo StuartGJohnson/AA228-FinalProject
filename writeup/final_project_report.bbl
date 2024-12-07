@@ -1,0 +1,61 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Egorov et~al.(2017)Egorov, Sunberg, Balaban, Wheeler, Gupta, and
+  Kochenderfer]{egorov2017pomdps}
+Maxim Egorov, Zachary~N. Sunberg, Edward Balaban, Tim~A. Wheeler, Jayesh~K.
+  Gupta, and Mykel~J. Kochenderfer.
+\newblock {POMDP}s.jl: A framework for sequential decision making under
+  uncertainty.
+\newblock \emph{Journal of Machine Learning Research}, 18\penalty0
+  (26):\penalty0 1--5, 2017.
+\newblock URL \url{http://jmlr.org/papers/v18/16-300.html}.
+
+\bibitem[Hanna~Kurniawati(2008)]{Kurniawati-RSS08}
+Wee Sun~Lee Hanna~Kurniawati, David~Hsu.
+\newblock Sarsop: Efficient point-based pomdp planning by approximating
+  optimally reachable belief spaces.
+\newblock In \emph{Proceedings of Robotics: Science and Systems IV}, Zurich,
+  Switzerland, June 2008.
+
+\bibitem[Kochenderfer et~al.(2022)Kochenderfer, Wheeler, and
+  Wray]{Kochenderfer2022}
+Mykel~J. Kochenderfer, Tim~A. Wheeler, and Kyle~H. Wray.
+\newblock \emph{Algorithms for Decision Making}.
+\newblock MIT Press, 2022.
+
+\bibitem[Ong et~al.(2009)Ong, Png, Hsu, and Lee]{Ong2009POMDPsFR}
+Sylvie C.~W. Ong, Shao~Wei Png, David Hsu, and Wee~Sun Lee.
+\newblock Pomdps for robotic tasks with mixed observability.
+\newblock In \emph{Robotics: Science and Systems}, 2009.
+\newblock URL \url{https://api.semanticscholar.org/CorpusID:2829896}.
+
+\bibitem[Peltzer et~al.(2022)Peltzer, Bouman, Kim, Senanayake, Ott, Delecki,
+  Sobue, Kochenderfer, Schwager, Burdick, and akbar Agha-mohammadi]{figop}
+Oriana Peltzer, Amanda Bouman, Sung-Kyun Kim, Ransalu Senanayake, Joshua Ott,
+  Harrison Delecki, Mamoru Sobue, Mykel Kochenderfer, Mac Schwager, Joel
+  Burdick, and Ali akbar Agha-mohammadi.
+\newblock Fig-op: Exploring large-scale unknown environments on a fixed time
+  budget, 2022.
+\newblock URL \url{https://arxiv.org/abs/2203.06316}.
+
+\bibitem[Vansteenwegen and Souffriau(2011)]{opsurvey}
+Pieter Vansteenwegen and Wouter Souffriau.
+\newblock The orienteering problem: A survey.
+\newblock \emph{European Journal of Operational Research}, 209:\penalty0 1--10,
+  02 2011.
+\newblock \doi{10.1016/j.ejor.2010.03.045}.
+
+\bibitem[Waddington and Heisz(2023)]{humanop}
+Emma~E. Waddington and Jennifer~J. Heisz.
+\newblock Orienteering experts report more proficient spatial processing and
+  memory across adulthood.
+\newblock \emph{PLOS ONE}, 18:\penalty0 1--14, 01 2023.
+\newblock \doi{10.1371/journal.pone.0280435}.
+\newblock URL \url{https://doi.org/10.1371/journal.pone.0280435}.
+
+\end{thebibliography}

@@ -27,10 +27,11 @@
 \maketitle
 
 \section*{Update}
-The sole purpose of this update is to remove the accidental submission of the Project 2 report from this slot in Gradescope.
+
+The POMDP for mission planning has proceeded as a modification of the RockSample POMDP example from the Julia POMDP universe. The SARSOP solver is being used for grid domains of modest size. A temporary modification of the original problem to reduce computational complexity has been made in code development: instead of uncertainty in the target locations, I have instead begun with uncertainty in the agent location. In any case, the observation space is the grid world or a small multiple of it. While code has just begun working (SARSOP is converging!), I expect progress to accelerate as I refine tools to plot observations, beliefs and other problem specifics.
 
 % References
-\bibliography{references}
+%\bibliography{references}
 
 \end{document}
 
