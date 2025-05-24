@@ -4,6 +4,6 @@ This repo is the Julia source code and latex writeup for the final project for t
 
  - [POMDP Navigation Performance for Orienteering](./writeup/final_project_report.pdf)
 
-The julia code in the repo is modified from the Julia RockSample.jl package of JuliaPOMDP.
+The julia code in this repo is modified from the Julia RockSample.jl package of JuliaPOMDP.
 
  - [RockSample.jl] (https://github.com/JuliaPOMDP/RockSample.jl)
