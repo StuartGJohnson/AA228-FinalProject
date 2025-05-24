@@ -6,4 +6,4 @@ This repo is the Julia source code and latex writeup for the final project for t
 
 The julia code in this repo is modified from the Julia RockSample.jl package of JuliaPOMDP.
 
- - [RockSample.jl] (https://github.com/JuliaPOMDP/RockSample.jl)
+ - <p><a href="https://github.com/JuliaPOMDP/RockSample.jl">RockSample.jl</a></p>
